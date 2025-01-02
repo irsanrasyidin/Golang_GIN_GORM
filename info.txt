@@ -1,0 +1,27 @@
+https://www.mockaroo.com/
+
+<tfoot>
+                        <tr>
+                            <td colspan="5">
+                              <tr>
+                                <td colspan="5">
+                                  <script>
+                                    page.Page++;
+                                  </script>
+                                    <a class="btn btn-primary" id="next">Next</a>
+                                    <script>
+                                      document.getElementById('next').addEventListener('click', function() {
+
+                                        var currentPage = parseInt('{{.page.Page}}') + 1;
+                                        // Membangun URL dengan nilai input teks yang di-encoded
+                                        var url = '/lgcs?page=' + encodeURIComponent(currentPage);
+                  
+                                        // Mengarahkan browser ke URL yang baru
+                                        window.location.href = url;
+                                      });
+                                    </script>
+                                </td>
+                            </tr>
+                            </td>
+                        </tr>
+                    </tfoot>

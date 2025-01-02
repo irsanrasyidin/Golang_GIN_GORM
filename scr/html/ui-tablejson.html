@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tugas Akhir</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="/main" class="text-nowrap logo-img">
+            <h5 class="card-title fw-semibold">Tugas Akhir</h5>
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/main" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Olah Data JSON & PostgreSQL</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/lgcs" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Table Data JSON</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/lgcu" aria-expanded="false" >
+                <span>
+                  <i class="ti ti-pencil"></i>
+                </span>
+                <span class="hide-menu">Pembaruan Data JSON</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/lgcd" aria-expanded="false">
+                <span>
+                  <i class="ti ti-trash"></i>
+                </span>
+                <span class="hide-menu">Hapus Data JSON</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/pstsqls" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Tabel Data Postgre</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/pstsqlu" aria-expanded="false">
+                <span>
+                  <i class="ti ti-pencil"></i>
+                </span>
+                <span class="hide-menu">Pembaruan Data Postgre</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/pstsqld" aria-expanded="false">
+                <span>
+                  <i class="ti ti-trash"></i>
+                </span>
+                <span class="hide-menu">Hapus Data Postgre</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="nav-item" style="padding: 10px; padding-top: 20px;">
+              <h5 class="card-title fw-semibold mb-4">Table Data JSON</h5>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <!--  Header End -->
+      <div class="container-fluid">
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-body">
+              <div class="col-lg-12 ml-auto">
+                <h5 class="card-title fw-semibold mb-4" >Pencarian</h5>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="fw-semibold mb-0">Search ID</h6>
+                    <input type="text" class="form-control" id="searchID" placeholder="Search by Id">
+                    <a class="btn btn-primary" id="searchIDLink">Cari ID</a>
+                    <script>
+                      document.getElementById('searchIDLink').addEventListener('click', function() {
+                          // Mendapatkan nilai dari input teks
+                          var searchValue = document.getElementById('searchID').value;
+                  
+                          // Membangun URL dengan nilai input teks yang di-encoded
+                          var url = '/lgcs?id=' + encodeURIComponent(searchValue);
+                  
+                          // Mengarahkan browser ke URL yang baru
+                          window.location.href = url;
+                      });
+                    </script>
+                  </div>
+                  <div class="col-sm-3">
+                    <h6 class="fw-semibold mb-0">Name</h6>
+                    <input type="text" class="form-control" id="searchName" placeholder="Search by Name">
+                    <a class="btn btn-primary" id="searchNamaLink" >Cari Nama</a>
+                    <script>
+                      document.getElementById('searchNamaLink').addEventListener('click', function() {
+                          // Mendapatkan nilai dari input teks
+                          var searchValue = document.getElementById('searchName').value;
+                  
+                          // Membangun URL dengan nilai input teks yang di-encoded
+                          var url = '/lgcs?nama=' + encodeURIComponent(searchValue);
+                  
+                          // Mengarahkan browser ke URL yang baru
+                          window.location.href = url;
+                      });
+                    </script>
+                  </div>
+                  <div class="col-sm-3">                    
+                    <h6 class="fw-semibold mb-0">Email</h6>
+                    <input type="text" class="form-control" id="searchEmail" placeholder="Search by Email">
+                    <a class="btn btn-primary" id="searchEmailLink" >Cari Email</a>
+                    <script>
+                      document.getElementById('searchEmailLink').addEventListener('click', function() {
+                          // Mendapatkan nilai dari input teks
+                          var searchValue = document.getElementById('searchEmail').value;
+                  
+                          // Membangun URL dengan nilai input teks yang di-encoded
+                          var url = '/lgcs?email=' + encodeURIComponent(searchValue);
+                  
+                          // Mengarahkan browser ke URL yang baru
+                          window.location.href = url;
+                      });
+                    </script>
+                  </div>
+                  <div class="col-sm-3">                    
+                    <h6 class="fw-semibold mb-0">Gender</h6>
+                    <input type="text" class="form-control" id="searchGender" placeholder="Search by Gender">
+                    <a class="btn btn-primary" id="searchGenderLink" >Cari Gender</a>
+                    <script>
+                      document.getElementById('searchGenderLink').addEventListener('click', function() {
+                          // Mendapatkan nilai dari input teks
+                          var searchValue = document.getElementById('searchGender').value;
+                  
+                          // Membangun URL dengan nilai input teks yang di-encoded
+                          var url = '/lgcs?gender=' + encodeURIComponent(searchValue);
+                  
+                          // Mengarahkan browser ke URL yang baru
+                          window.location.href = url;
+                      });
+                    </script>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="col-lg-12 ml-auto">
+                
+                <div class="card-body p-4">
+                  <h5 class="card-title fw-semibold mb-4">Data</h5>
+                  <div class="table-responsive">
+
+                    {{ if not .data }}
+                      <p>Tidak ada data yang tersedia.</p>
+                    {{ else }}
+                      <table class="table text-nowrap mb-0 align-middle">
+                        <thead class="text-dark fs-4">
+                          <tr>
+                            <th class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">Id</h6>          
+                            </th>
+                            <th class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">Name</h6>
+                            </th>
+                            <th class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">Email</h6>
+                            </th>
+                            <th class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">Gender</h6>
+                            </th>
+                            <th class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">Avatar</h6>
+                            </th>    
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {{ range .data }}
+                        <tr>
+                          <td>{{ .ID }}</td>
+                          <td>{{ .First_name }} {{ .Last_name }}</td>
+                          <td>{{ .Email }}</td>
+                          <td>{{ .Gender }}</td>
+                          <td><img src="{{ .Avatar }}" width="50" height="50"></td>
+                        </tr>   
+                        {{ end }}
+                        </tbody>
+                      </table>
+                    {{ end }}
+                  </div>
+                </div>                  
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+</body>
+
+</html>

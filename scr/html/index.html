@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tugas Akhir</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <div class="mb-3 mb-sm-0">
+            <a href="/main" class="text-nowrap logo-img">
+              <h5 class="card-title fw-semibold">Tugas Akhir</h5>
+            </a>
+          </div>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Home</span>
+            </li> 
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/main" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Olah Data JSON & PostgreSQL</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/lgcs" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Table Data JSON</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/lgcu" aria-expanded="false" >
+                <span>
+                  <i class="ti ti-pencil"></i>
+                </span>
+                <span class="hide-menu">Pembaruan Data JSON</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/lgcd" aria-expanded="false">
+                <span>
+                  <i class="ti ti-trash"></i>
+                </span>
+                <span class="hide-menu">Hapus Data JSON</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/pstsqls" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Tabel Data Postgre</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/pstsqlu" aria-expanded="false">
+                <span>
+                  <i class="ti ti-pencil"></i>
+                </span>
+                <span class="hide-menu">Pembaruan Data Postgre</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="/pstsqld" aria-expanded="false">
+                <span>
+                  <i class="ti ti-trash"></i>
+                </span>
+                <span class="hide-menu">Hapus Data Postgre</span>
+              </a>
+            </li>
+          </ul>
+          
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <h5 class="card-title fw-semibold">Dashboard Golang</h5>
+            </li>
+          </ul>
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav">
+              <form action="/restart" method="post">
+                <button type="submit" class="btn btn-primary" style="margin-left: 20px;">Restart</button>
+              </form>
+            </ul>
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+            <form action="/lgc" method="post" enctype="multipart/form-data" >
+              <label for="fileUpload" >Choose a CSV file:</label>
+              <input type="file" id="fileUpload" name="fileUpload" accept=".csv" >
+              <button type="submit" class="btn btn-primary">Upload</button>
+            </form> 
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!--  Header End -->
+      <div class="container-fluid">
+        <!--  Row 1 -->
+        <div class="row">          
+          <div class="col-lg-4">
+            <div class="row">
+              <div class="col-lg-12">
+                <!-- Yearly Breakup -->
+                <div class="card overflow-hidden">
+                  <div class="card-body p-4">
+                    <h5 class="card-title mb-9 fw-semibold">Presentasi JSON & PostgreSQL</h5>
+                    <div class="row align-items-center">
+                      <div class="col-8">
+                        <h4 class="fw-semibold mb-3" id="Perbedaan">0</h4>
+                        <div class="d-flex align-items-center mb-3">
+                          <span
+                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                            <i class="ti ti-arrow-up-left text-success"></i>
+                          </span>
+                          <p class="text-dark me-1 fs-3 mb-0" id="Perbedaanpersen1">+0%</p>
+                          <p class="fs-3 mb-0"id="Perbedaanpersen2">0</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                          <div class="me-4">
+                            <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                            <span class="fs-2">JSON</span>
+                          </div>
+                          <div>
+                            <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                            <span class="fs-2">PostgreSQL</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="d-flex justify-content-center">
+                          <div id="breakup"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <!-- Monthly Earnings -->
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row alig n-items-start">
+                      <div class="col-lg-12">
+                        <h5 class="card-title mb-9 fw-semibold"> Standar Deviasi </h5>
+                        <div class="table-responsive">
+                          {{ if not .jsonData }}
+                              <p>Tidak ada data yang tersedia.</p>
+                            {{ else }}
+                              <table class="table text-nowrap mb-0 align-middle" id="mainData" >
+                                <thead>Outliner</thead>
+                                <tbody>                                  
+                                  <tr>
+                                    <td>JSON</td>
+                                  {{ range .jsonData }}                                  
+                                      <td>{{ .Outliner }}</td>                                   
+                                  {{ end }}
+                                  </tr>                                    
+                                  <tr>
+                                    <td>PostgreSQL</td>
+                                  {{ range .postgreData }}                                  
+                                      <td>{{ .Outliner }}</td>                                   
+                                  {{ end }}
+                                  </tr> 
+                                </tbody>
+                              </table>
+                            {{ end }}
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div id="earning"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8 d-flex align-items-strech">
+            <div class="card w-100">
+              <div class="card-body">
+                <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
+                  <div class="mb-3 mb-sm-0">
+                    <h5 class="card-title fw-semibold">Grafik Perbandingan Rata-Rata JSON & PostgreSQL</h5>
+                  </div>
+                  <div>            
+                    <select class="form-select" id="screenSelect">
+                      <option value="1">ALL</option>
+                      <option value="2">Create</option>
+                      <option value="3">Read</option>
+                      <option value="4">Update</option>                      
+                      <option value="5">Delete</option>
+                    </select>
+                    <script>
+                      document.getElementById('screenSelect').addEventListener('change', function() {
+                          // Mendapatkan nilai dari select
+                          var selectedValue = this.value;
+                          
+                          // Membangun URL dengan nilai select yang di-encoded
+                          var url = '/main?option=' + encodeURIComponent(selectedValue);
+                          
+                          // Mengarahkan browser ke URL yang baru
+                          window.location.href = url;
+                      });
+                      window.addEventListener('load', function() {
+                      // Mendapatkan elemen select
+                      var selectElement = document.getElementById('screenSelect');
+        
+                      // Mendapatkan nilai dari URL
+                      var urlParams = new URLSearchParams(window.location.search);
+                      var selectedOption = urlParams.get('option');
+        
+                      // Jika nilai option ada dalam URL dan merupakan salah satu dari 1, 2, 3, 4, atau 5
+                    if (selectedOption && ['1', '2', '3', '4', '5'].includes(selectedOption)) {
+                      // Mengatur nilai select sesuai dengan nilai option dalam URL
+                      selectElement.value = selectedOption;
+                    } else {
+                      // Jika tidak, mengatur kembali nilai select ke 1
+                      selectElement.value = '1';
+                    }
+                      });
+                  </script>
+                  </div>
+                </div>
+                <div id="chart"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12 d-flex align-items-stretch" >
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <div style="display: flex;">
+                  <h5 class="card-title fw-semibold col-6">Durasi Setiap Eksekusi</h5>
+                  <h5 class="card-title fw-semibold col-1" style="background-color: lightblue;margin-right: 20px;border-radius: 20px;text-align: center;">Outliner</h5>
+                  <h5 class="card-title fw-semibold col-1" style="background-color: gold;border-radius: 20px;text-align: center;">Tercepat</h5>
+                </div>
+                <div class="table-responsive">
+                  {{ if not .mainData }}
+                      <p>Tidak ada data yang tersedia.</p>
+                    {{ else }}
+                      <table class="table text-nowrap mb-0 align-middle" id="mainData" >
+                        <thead class="text-dark fs-4">
+                          <tr>
+                            <th class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">Nama</h6>          
+                            </th>
+                            <th class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">Masuk</h6>
+                            </th>
+                            <th class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">Keluar</h6>
+                            </th>
+                            <th class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">Durasi</h6>
+                            </th>
+                            <th class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">Coba</h6>
+                            </th>    
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {{ range .mainData }}
+                          <tr style="background-color: 
+                              {{ if eq .Status "out" }} lightblue;
+                              {{ else if eq .Status "top" }} gold;
+                              {{ else }} none;
+                              {{ end }}">
+                              <td>{{ .Nama }}</td>
+                              <td>{{ .Masuk }}</td>
+                              <td>{{ .Keluar }}</td>
+                              <td>{{ .Duration }}</td>
+                              <td>{{ .Coba }}</td>
+                          </tr>   
+                      {{ end }}
+                        </tbody>
+                      </table>
+                    {{ end }}
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <table id="jsonData" style="display: none;">
+          <thead>
+            <tr>
+              <th>
+                <h6>Nama</h6>
+              </th>
+              <th>
+                <h6>Average</h6>
+              </th>
+              <th>
+                <h6>Top</h6>
+              </th>
+              <th>
+                <h6>Data</h6>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {{ range .jsonData }}
+            <tr>              
+                <td>{{.Nama}}</td>    
+                <td>{{.Average}}</td>            
+                <td>{{.Top}}</td>  
+                <td>{{.Data}}</td>  
+                <td>{{.S_Deviasi}}</td>
+            </tr>
+            {{end}}
+          </tbody>
+        </table>
+        <table id="postgreSQL" style="display: none;">
+          <thead>
+            <tr>
+              <th>
+                <h6>Nama</h6>
+              </th>
+              <th>
+                <h6>Average</h6>
+              </th>
+              <th>
+                <h6>Top</h6>
+              </th>
+              <th>
+                <h6>Data</h6>
+              </th>
+              <th>
+                <h6>Standar Deviasi</h6>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {{ range .postgreData }}
+            <tr>              
+                <td>{{.Nama}}</td>    
+                <td>{{.Average}}</td>            
+                <td>{{.Top}}</td>  
+                <td>{{.Data}}</td>  
+                <td>{{.S_Deviasi}}</td>
+            </tr>
+            {{end}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script>
+    const tableJSON = document.getElementById('jsonData');
+    const tablePostgre = document.getElementById('postgreSQL');
+    const rowsJSON = tableJSON.getElementsByTagName('tr');
+    const rowsPostgre = tablePostgre.getElementsByTagName('tr');
+    let diff = document.getElementById("Perbedaanpersen2");
+    let diff2 = document.getElementById("Perbedaanpersen1");
+    let diff3 = document.getElementById("Perbedaan");
+    const nama =[];
+    const dataJSON = [];
+    const dataPostgre = [];
+    const averageJSON = [];
+    const averagePostgre = [];
+    const nDeviasiJson =[];
+    const nDeviasiPostgre =[];
+    let percentageDifference = 0.0;
+    let totaljson = 0.0;
+    let totalpostgre = 0.0;
+    let max=0;
+
+    console.log(tableJSON)
+    console.log(tablePostgre)
+    for (let i = 1; i < rowsJSON.length; i++) { // Skip the header row
+      const cells = rowsJSON[i].getElementsByTagName('td');
+      const entry = {
+        Nama: cells[0].innerText,
+        Average: cells[1].innerText,
+        Top: cells[2].innerText,
+        Data: cells[3].innerText,
+      };
+      totaljson += parseFloat(cells[1].innerText);
+      nDeviasiJson.push(cells[4].innerText)
+      dataJSON.push(entry);
+      nama.push(entry.Nama)
+      averageJSON.push(entry.Average);
+    }
+
+    for (let i = 1; i < rowsPostgre.length; i++) { // Skip the header row
+      const cells = rowsPostgre[i].getElementsByTagName('td');
+      const entry = {
+        Nama: cells[0].innerText,
+        Average: cells[1].innerText,
+        Top: cells[2].innerText,
+        Data: cells[3].innerText,
+      };
+      totalpostgre += parseFloat(cells[1].innerText);
+      nDeviasiPostgre.push(cells[4].innerText)
+      dataPostgre.push(entry);
+      averagePostgre.push(entry.Average);
+    }
+
+    let difference = Math.abs(totaljson - totalpostgre);
+    if (totaljson > totalpostgre) {
+      diff3.innerText = "Postgre Lebih Cepat"
+      percentageDifference = ((totaljson - totalpostgre) / totalpostgre) * 100;
+    } else if (totaljson < totalpostgre) {
+      diff3.innerText = "JSON Lebih Cepat"
+      percentageDifference = ((totalpostgre - totaljson) / totaljson) * 100;
+    }
+    
+    diff.innerText = difference.toFixed(3)+" ms";
+    diff2.innerText = +percentageDifference.toFixed(2)+"% / ";
+
+    const maxJson = Math.max(...averageJSON);
+    const maxPostgre = Math.max(...averagePostgre);
+    if (maxJson>maxPostgre){
+      max = Math.ceil(maxJson);
+    } else {
+      max = Math.ceil(maxPostgre);
+    }
+
+    console.log(max)
+
+    var chart = {
+    series: [
+      { name: "JSON:", data:averageJSON},
+      { name: "PostgreSQL:", data: averagePostgre },
+    ],
+
+    chart: {
+      type: "bar",
+      height: 380,
+      toolbar: { show: true },
+      foreColor: "#adb0bb",
+      fontFamily: 'inherit',
+      sparkline: { enabled: false },
+    },
+
+
+    colors: ["#5D87FF", "#49BEFF"],
+
+    title: {
+            display: true,
+            text: 'Total Rata-rata JSON: '+totaljson.toFixed(3)+', Total Rata-rata PostgreSQL: '+totalpostgre.toFixed(3),
+            fontSize: 18,
+            fontStyle: 'bold'
+    },
+
+    subtitle: {
+        display: true,
+        text: 'Golang',
+        color: '#5D87FF',
+        font: {
+          size: 18,
+          style: 'bold'
+        },
+    },
+
+    plotOptions: {
+      bar: {
+        horizontal: false,
+        columnWidth: "35%",
+        borderRadius: [6],
+        borderRadiusApplication: 'end',
+        borderRadiusWhenStacked: 'all'
+      },
+    },
+    markers: { size: 0 },
+
+    dataLabels: {
+      enabled: false,
+    },
+
+
+    legend: {
+      show: false,
+    },
+
+
+    grid: {
+      borderColor: "rgba(0,0,0,0.1)",
+      strokeDashArray: 3,
+      xaxis: {
+        lines: {
+          show: true,
+        },
+      },
+    },
+
+    xaxis: {
+      type: "category",
+      categories: nama,
+      labels: {
+        style: { cssClass: "grey--text lighten-2--text fill-color" },
+      },
+    },
+
+
+    yaxis: {
+      show: true,
+      min: 0,
+      max: max,
+      tickAmount: 4,
+      labels: {
+        style: {
+          cssClass: "grey--text lighten-2--text fill-color",
+        },
+      },
+    },
+    stroke: {
+      show: true,
+      width: 3,
+      lineCap: "butt",
+      colors: ["transparent"],
+    },
+
+
+    tooltip: { theme: "light" },
+
+    responsive: [
+      {
+        breakpoint: 600,
+        options: {
+          plotOptions: {
+            bar: {
+              borderRadius: 3,
+            }
+          },
+        }
+      }
+    ]
+
+
+  };
+
+  var chart = new ApexCharts(document.querySelector("#chart"), chart);
+  chart.render();
+
+
+  // =====================================
+  // Breakup
+  // =====================================
+  var breakup = {
+    color: "#adb5bd",
+    series: [parseFloat(totaljson.toFixed(3)), parseFloat(totalpostgre.toFixed(3))],
+    labels: ["JSON", "PostgreSQL"],
+    chart: {
+      width: 180,
+      type: "donut",
+      toolbar: { show: true },
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+    },
+    plotOptions: {
+      pie: {
+        startAngle: 0,
+        endAngle: 360,
+        donut: {
+          size: '75%',
+        },
+      },
+    },
+    stroke: {
+      show: false,
+    },
+
+    dataLabels: {
+      enabled: false,
+    },
+
+    legend: {
+      show: false,
+    },
+    colors: ["#5D87FF", "#ecf2ff", "#F9F9FD"],
+
+    responsive: [
+      {
+        breakpoint: 991,
+        options: {
+          chart: {
+            width: 150,
+          },
+        },
+      },
+    ],
+    tooltip: {
+      theme: "dark",
+      fillSeriesColor: false,
+    },
+  };
+
+  var chart = new ApexCharts(document.querySelector("#breakup"), breakup);
+  chart.render();
+
+
+
+  // =====================================
+  // Earning
+  // =====================================
+  var earning = {
+    chart: {
+      id: "sparkline3",
+      type: "area",
+      toolbar: { show: true },
+      height: 60,
+      sparkline: {
+        enabled: true,
+      },
+      group: "sparklines",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+    },
+    series: [
+      {
+        name: "PostgreSQL",
+        color: "#49BEFF",
+        data: nDeviasiPostgre,
+      },
+      {
+        name: "JSON",
+        color: "#5D87FF",
+        data: nDeviasiJson,
+      },
+    ],
+    stroke: {
+      curve: "smooth",
+      width: 2,
+    },
+    fill: {
+      colors: ["#f3feff"],
+      type: "solid",
+      opacity: 0.05,
+    },
+
+    markers: {
+      size: 0,
+    },
+    tooltip: {
+      theme: "dark",
+      fixed: {
+        enabled: true,
+        position: "right",
+      },
+      x: {
+        show: false,
+      },
+    },
+  };
+  
+  new ApexCharts(document.querySelector("#earning"), earning).render();
+  </script>
+  
+</body>
+
+</html>
